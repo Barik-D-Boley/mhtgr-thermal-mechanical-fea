@@ -1,12 +1,12 @@
 # ==============================================================================
 # INL Portfolio Project: MHTGR Hexagonal Monolith
-# Stage 2: Coupled Steady-State Thermal-Mechanical Analysis
+# Coupled Steady-State Thermal-Mechanical Analysis
 # ==============================================================================
 
 [Mesh]
   [fmg]
     type = FileMeshGenerator
-    file = 'hex_monolith.e'
+    file = '../meshes/monolith.e'
   []
   
   [scale_to_meters]

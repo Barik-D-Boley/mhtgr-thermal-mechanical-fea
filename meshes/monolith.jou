@@ -1,0 +1,36 @@
+# ==============================================================================
+# Coreform Cubit Journal File: HTGR Monolith Pipeline
+# ==============================================================================
+
+# 1. Import Geometry
+import step "../cad/monolith.STEP" heal
+
+# 2. Mesh Specification & Execution
+volume 1 scheme sweep
+volume 1 size 0.4
+mesh volume 1
+
+# 3. Boundary Identification (Sidesets)
+create sideset 1
+sideset 1 add surface with y_coord > -0.0001 and y_coord < 0.0001
+sideset 1 name "top_face"
+
+create sideset 2
+sideset 2 add surface with y_coord < -1.999
+sideset 2 name "bottom_face"
+
+create sideset 3
+sideset 3 add surface with y_coord < -0.1 and y_coord > -1.9 and not is_plane
+sideset 3 name "channel_walls"
+
+create sideset 4
+sideset 4 add surface with y_coord < -0.1 and y_coord > -1.9 and is_plane
+sideset 4 name "outer_walls"
+
+# 4. Material Block Assignment
+create block 1
+block 1 add volume 1
+block 1 name "monolith_graphite"
+
+# 5. Export Mesh
+export exodus "monolith.e" overwrite

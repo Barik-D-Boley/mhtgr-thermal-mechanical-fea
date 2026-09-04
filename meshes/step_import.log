@@ -1,0 +1,136 @@
+--------------------------------------------------------------------------------
+Translator Name    : Spatial InterOp UConnect ( Version : 2026 1.0.1 )
+System Name        : Windows_NT
+Machine Name       : DESKTOP-3AVI2NE
+User Name          : xBari
+Source System      : STEP
+Destination System : ACIS
+Output File        : C:\Users\xBari\AppData\Local\Temp\SPAXTemp-P5584-T2836-3_SPAIop_1_Doc.sab
+Start Time         : Fri Sep  4 16:59:41 2026
+
+--------------------------------------------------------------------------------
+Message : === Translation Options ===
+Message : TranslateHiddenEntities : true
+Message : EnableMissingComponentsData : true
+Message : TranslateSelectionSets : true
+Message : TranslateSuppressedEntities : true
+Message : ApplyLayerFilter : ALL
+Message : EnableUconnectDefaultBehaviour : true
+Message : *.*.*.LoggingMode : 1
+Message : TranslateLayersAndFilters : true
+Message : SewSheetBodies : false
+Message : UG.*.Reader.PName : 28
+Message : UGDirect.*.Reader.PName : 28
+Message : CATIAV5.*.Reader.PName : 20
+Message : REVIT.*.Reader.PName : 31
+Message : PName : 20
+Message : *.*.*.LoggingOutputDirectory : C:\Users\xBari\Documents\GitHub\mhtgr-thermal-mechanical-fea\meshes\
+Message : TranslateMeshAsMesh : true
+Message : EnableWideCharacter : true
+Message : Logging : Activated
+Message : ACIS.*.Modeler.Units : 5
+Message : *.*.*.LogFileName : step_import.log
+Message : Representation : BRep+PMI+Manufacturing+DocumentFeature+Geometry+ProceduralBody
+Message : ===========================
+-------------------------Source File Header Information-------------------------
+Modification Date        : 2026-09-02T18:54:09
+File Name                : hex_monolith.STEP
+Author                   : ''
+Organization             : ''
+Source System            : SolidWorks 2025 SwSTEP 2.0
+Version                  : AP214
+Authorization            : 
+File Description         : 'STEP AP214'
+Implementation Level     : 1
+File Schema Name         : 'AUTOMOTIVE_DESIGN'
+Document Type            : Part
+Units                    : CENTIMETER
+Format Type              : STEP
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Source Document Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Target Document Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Start BRep
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+BRep Source Representation Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+BRep Target Representation Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+BRep Source Representation Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+BRep Target Representation Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+End BRep
+------------------------Representation Conversion Summary-----------------------
+No. of Acorn Bodies                       :    0
+No. of Sheet Bodies                       :    0
+No. of Mixed Bodies                       :    0
+No. of Solid Bodies                       :    1
+No. of Wire Bodies                        :    0
+No. of Free Surfaces                      :    0
+No. of Free Curves                        :    0
+No. of Free Points                        :    0
+--------------------------------------------------------------------------------
+BRep Conversion Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Start DocumentFeature
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DocumentFeature Source Representation Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DocumentFeature Target Representation Preprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DocumentFeature Source Representation Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+DocumentFeature Target Representation Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+End DocumentFeature
+------------------------Representation Conversion Summary-----------------------
+No. of Groups                             :    0
+No. of Bim Properties                     :    0
+No. of Selection Sets                     :    0
+No. of Working Coordinate Systems         :    0
+No. of Materials                          :    0
+No. of Symmetries                         :    0
+No. of Display Sets                       :    0
+No. of Layer Filters                      :    0
+No. of Layers                             :    0
+No. of Note Parameters                    :    0
+No. of User Properties                    :    1
+--------------------------------------------------------------------------------
+DocumentFeature Conversion Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Target Document Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Target Document Postprocessing Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------Document Conversion Summary--------------------------
+No. of Items of BRep Representation            :    1
+No. of Items of DocumentFeature Representation :    1
+--------------------------------------------------------------------------------
+Message : Setting save mode for ACIS file based on the file extension
+Output File "C:\Users\xBari\AppData\Local\Temp\SPAXTemp-P5584-T2836-3_SPAIop_1_Doc.sab" is Successfully Written
+--------------------------------------------------------------------------------
+Finish Time : Fri Sep  4 16:59:41 2026
+
+--------------------------------------------------------------------------------
+Translation Result : Success
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
