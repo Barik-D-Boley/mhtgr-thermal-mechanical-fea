@@ -62,28 +62,48 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 │   └── monolith.STEP
 ├── images/
 │   ├── monolith_cad_drawing.png
-│   ├── monolith_mesh.png
+│   └── monolith_disp.png
 │   ├── monolith_mesh_zoomed.png
+│   ├── monolith_mesh.png
 │   ├── monolith_temp.png
 │   ├── monolith_vonmises.png
-│   └── monolith_disp.png
 ├── inputs/
 │   └── monolith.i
 ├── meshes/
 │   ├── monolith.cub5
 │   └── monolith.e
+│   └── monolith.jou
 ├── .gitignore
 └── README.md
 ```
 
-## How to Run
+## Simulation Workflow
 
-1. **Prerequisites:** Installed MOOSE framework executable (e.g., `combined-opt` or custom application).
-2. **Execute Simulation:**
-   ```bash
-   mpiexec -n 4 ./monolith_analysis-opt -i inputs/monolith.i
-   ```
-3. **View Results:** Load the output Exodus mesh (`inputs/monolith_out.e`) directly into ParaView.
+This project is built on an automated CAD-to-solution pipeline. To reproduce the analysis from scratch, follow these steps:
+
+1. **CAD Export (SolidWorks)**
+   * The base geometry was modeled in SolidWorks and exported as a standard STEP file (`cad/monolith.STEP`).
+
+2. **Mesh Generation (Coreform Cubit)**
+   * Open Coreform Cubit and change your working directory to the `meshes/` folder.
+   * Run the automated journal script to import the CAD, mesh the volume, assign boundary sets, and export the Exodus mesh:
+     ```cubit
+     playback "monolith.jou"
+     ```
+   * *Output: `monolith.e`*
+   * *Note: A pre-meshed Cubit session (`monolith.cub5`) and the exported mesh (`monolith.e`) are included in the repository. If you do not have a Cubit license, you can skip this step and proceed directly to the FEA solve.*
+
+3. **FEA Solve (MOOSE Framework)**
+   * Ensure you have a compiled MOOSE environment (e.g., `tensor_mechanics-opt` or `combined-opt`).
+   * Run the input file from the repository root:
+     ```bash
+     mpiexec -n 4 ./monolith_analysis-opt -i inputs/monolith.i
+     ```
+   * *Output: `monolith_out.e`*
+
+4. **Post-Processing (ParaView)**
+   * Open the resulting `monolith_out.e` file in ParaView.
+   * Apply filters (e.g., Warp By Vector, Slice) to visualize the thermal and mechanical stress distributions.
 
 ---
 

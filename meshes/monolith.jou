@@ -33,4 +33,7 @@ block 1 add volume 1
 block 1 name "monolith_graphite"
 
 # 5. Export Mesh
-export exodus "monolith.e" overwrite
+export mesh "monolith.e" overwrite
+
+# 6. Clean up temporary CAD import logs
+system "del step_import.log"

@@ -11,3 +11,6 @@
 .DS_Store
 Thumbs.db
 .vscode/
+
+# STEP to Cubit log file
+*.log
