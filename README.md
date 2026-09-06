@@ -7,7 +7,7 @@ This repository documents a coupled thermo-mechanical Finite Element Analysis (F
 ## Technical Stack & Workflow
 * **CAD Modeling:** SolidWorks (`cad/monolith.SLDPRT`, `cad/monolith.STEP`)
 * **Mesh Generation:** Coreform Cubit (`meshes/monolith.cub5`) — Structured 8-node Hexahedral (HEX8) mesh
-* **FEA Solver:** MOOSE Framework (`inputs/monolith.i`) — Fully coupled Heat Conduction & Tensor Mechanics
+* **FEA Solver:** MOOSE Framework (`simulations/monolith.i`) — Fully coupled Heat Conduction & Tensor Mechanics
 * **Post-Processing:** ParaView (`images/`)
 
 ---
@@ -67,22 +67,31 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 │   ├── monolith_mesh.png
 │   ├── monolith_temp.png
 │   ├── monolith_vonmises.png
-├── inputs/
-│   └── monolith.i
 ├── meshes/
 │   ├── monolith.cub5
 │   └── monolith.e
 │   └── monolith.jou
+├── postprocessing/
+│   └── monolith_render.pvsm
+├── simulations/
+│   └── monolith.i
 ├── .gitignore
 └── README.md
 ```
+
+## Prerequisites
+
+To run the simulation from scratch, you will need:
+* **MOOSE Framework:** A working installation of the MOOSE framework. Please follow the [official MOOSE Getting Started Guide](https://mooseframework.inl.gov/getting_started/index.html) to set up your environment.
+* **ParaView:** Required for visualizing the `.e` output files.
+* **Coreform Cubit (Optional):** Only required if you wish to regenerate the mesh from the `.jou` script.
 
 ## Simulation Workflow
 
 This project is built on an automated CAD-to-solution pipeline. To reproduce the analysis from scratch, follow these steps:
 
 1. **CAD Export (SolidWorks)**
-   * The base geometry was modeled in SolidWorks and exported as a standard STEP file (`cad/monolith.STEP`).
+   * The base geometry was modeled in SolidWorks (`cad/monolith.SLDPRT`) and exported as a standard STEP file (`cad/monolith.STEP`).
 
 2. **Mesh Generation (Coreform Cubit)**
    * Open Coreform Cubit and change your working directory to the `meshes/` folder.
@@ -94,16 +103,18 @@ This project is built on an automated CAD-to-solution pipeline. To reproduce the
    * *Note: A pre-meshed Cubit session (`monolith.cub5`) and the exported mesh (`monolith.e`) are included in the repository. If you do not have a Cubit license, you can skip this step and proceed directly to the FEA solve.*
 
 3. **FEA Solve (MOOSE Framework)**
-   * Ensure you have a compiled MOOSE environment (e.g., `tensor_mechanics-opt` or `combined-opt`).
-   * Run the input file from the repository root:
+   * Ensure your MOOSE environment is active. If you are using a custom MOOSE application, compile it in the repository root (e.g., using `make -j 4`).
+   * From the root of the repository, execute the simulation using the relative path to the input file:
      ```bash
-     mpiexec -n 4 ./monolith_analysis-opt -i inputs/monolith.i
+     mpiexec -n 4 ./<your_app_name>-opt -i inputs/monolith.i
      ```
-   * *Output: `monolith_out.e`*
+   * *(Note: If you are relying on standard MOOSE physics, you can also point this command to the built-in `combined-opt` executable).*
+   * *Output: `monolith_out.e` and `monolith_out.csv`*
 
 4. **Post-Processing (ParaView)**
-   * Open the resulting `monolith_out.e` file in ParaView.
-   * Apply filters (e.g., Warp By Vector, Slice) to visualize the thermal and mechanical stress distributions.
+   * Open ParaView, go to **File > Load State...**, and select `postprocessing/monolith_render.pvsm`.
+   * When prompted for data files, select **"Search files under specified directory"** and point ParaView to your local `simulations/` folder.
+   * This automatically loads the dataset along with pre-configured color scales, legends, and camera views for `temperature`, `displacement`, `vonmises_stress`, and `hydrostatic_stress`.
 
 ---
 

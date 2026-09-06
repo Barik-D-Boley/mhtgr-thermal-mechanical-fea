@@ -42,7 +42,7 @@
 []
 
 [Variables]
-  [T]
+  [temperature]
     order = FIRST
     family = LAGRANGE
     initial_condition = 300
@@ -50,7 +50,7 @@
 []
 
 [GlobalParams]
-  displacements = 'disp_x disp_y disp_z'
+  displacements = 'displacement_x displacement_y displacement_z'
 []
 
 [Physics]
@@ -61,7 +61,7 @@
         add_variables = true
         eigenstrain_names = thermal_expansion
         generate_output = 'stress_xx stress_yy stress_zz vonmises_stress hydrostatic_stress'
-        temperature = T
+        temperature = temperature
       []
     []
   []
@@ -70,11 +70,11 @@
 [Kernels]
   [heat_conduction]
     type = HeatConduction
-    variable = T
+    variable = temperature
   []
   [heat_source]
     type = BodyForce
-    variable = T
+    variable = temperature
     value = 5e6
   []
 []
@@ -82,7 +82,7 @@
 [BCs]
   [convective_cooling]
     type = ConvectiveHeatFluxBC
-    variable = T
+    variable = temperature
     boundary = 'channel_walls'
     T_infinity = 600
     heat_transfer_coefficient = 2000
@@ -90,39 +90,39 @@
 
   [pt1_x]
     type = DirichletBC
-    variable = disp_x
+    variable = displacement_x
     boundary = pin_pt1
     value = 0
   []
   [pt1_y]
     type = DirichletBC
-    variable = disp_y
+    variable = displacement_y
     boundary = pin_pt1
     value = 0
   []
   [pt1_z]
     type = DirichletBC
-    variable = disp_z
+    variable = displacement_z
     boundary = pin_pt1
     value = 0
   []
 
   [pt2_y]
     type = DirichletBC
-    variable = disp_y
+    variable = displacement_y
     boundary = pin_pt2
     value = 0
   []
   [pt2_z]
     type = DirichletBC
-    variable = disp_z
+    variable = displacement_z
     boundary = pin_pt2
     value = 0
   []
 
   [pt3_y]
     type = DirichletBC
-    variable = disp_y
+    variable = displacement_y
     boundary = pin_pt3
     value = 0
   []
@@ -134,8 +134,8 @@
     type = ParsedMaterial
     block = 'monolith_graphite'
     property_name = 'thermal_conductivity'
-    coupled_variables = 'T'
-    expression = '9000 / T'
+    coupled_variables = 'temperature'
+    expression = '9000 / temperature'
   []
 
   [graphite_heat_capacity]
@@ -159,7 +159,7 @@
   [thermal_expansion]
     type = ComputeThermalExpansionEigenstrain
     block = 'monolith_graphite'
-    temperature = T
+    temperature = temperature
     stress_free_temperature = 300
     thermal_expansion_coeff = 4.5e-6
     eigenstrain_name = thermal_expansion
@@ -177,7 +177,7 @@
   # Finds the maximum temperature across all nodes
   [max_T]
     type = NodalExtremeValue
-    variable = T
+    variable = temperature
   []
   
   # Finds the maximum von Mises stress across all elements
