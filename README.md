@@ -17,7 +17,7 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 
 | Global Mesh View | Zoomed Channel Detail |
 | :---: | :---: |
-| <a href="images/monolith_cubit_mesh.png" target="_blank"><img src="images/monolith_cubit_mesh.png" alt="Global Mesh View" width="650"><a/> | <a href="images/monolith_cubit_mesh_zoomed.png" target="_blank"><img src="images/monolith_cubit_mesh_zoomed.png" alt="Zoomed Channel Detail" width="650"><a/> |
+| <a href="images/monolith_cubit_mesh.png"><img src="images/monolith_cubit_mesh.png" alt="Global Mesh View" width="650"></a> | <a href="images/monolith_cubit_mesh_zoomed.png"><img src="images/monolith_cubit_mesh_zoomed.png" alt="Zoomed Channel Detail" width="650"></a> |
 
 * **Element Type:** HEX8 (Structured Brick)
 * **Total Element Count:** **18,430 elements**
@@ -44,10 +44,10 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 
 | Variable | Result Visualization | Peak Value & Physical Interpretation |
 | :--- | :---: | :--- |
-| **Temperature** | <a href="images/monolith_paraview_temp.png" target="_blank"><img src="images/monolith_paraview_temp.png" alt="Temperature Field" width="650"></a> | **662 K** — Peak thermal accumulation occurs along the uncooled exterior perimeter, while convective cooling channels maintain lower internal core temperatures (~608 K). |
-| **Von Mises Stress** | <a href="images/monolith_paraview_vonmises.png" target="_blank"><img src="images/monolith_paraview_vonmises.png" alt="Von Mises Stress" width="650"></a> | **1,518,163 Pa (~1.52 MPa)** — Peak stresses remain well below the ultimate tensile strength of IG-110 (~25 MPa). |
-| **Displacement** | <a href="images/monolith_paraview_disp.png" target="_blank"><img src="images/monolith_paraview_disp.png" alt="Displacement Field" width="650"></a> | **6.03e-04 m (0.603 mm)** — Unidirectional thermal expansion relative to the fixed 3-2-1 anchor point, producing maximum deflection at the unconstrained top-left corner. |
-| **Hydrostatic Stress** | <a href="images/monolith_paraview_hydro.png" target="_blank"><img src="images/monolith_paraview_hydro.png" alt="Hydrostatic Stress" width="650"></a> | **+0.44 MPa (Tension) / -0.50 MPa (Compression)** — Bounds the full volumetric stress state, highlighting internal core tension (+435,016 Pa) prone to micro-cracking versus outer edge compression (-495,406 Pa). |
+| **Temperature** | <a href="images/monolith_paraview_temp.png"><img src="images/monolith_paraview_temp.png" alt="Temperature Field" width="650"></a> | **662 K** — Peak thermal accumulation occurs along the uncooled exterior perimeter, while convective cooling channels maintain lower internal core temperatures (~608 K). |
+| **Von Mises Stress** | <a href="images/monolith_paraview_vonmises.png"><img src="images/monolith_paraview_vonmises.png" alt="Von Mises Stress" width="650"></a> | **1,518,163 Pa (~1.52 MPa)** — Peak stresses remain well below the ultimate tensile strength of IG-110 (~25 MPa). |
+| **Displacement** | <a href="images/monolith_paraview_disp.png"><img src="images/monolith_paraview_disp.png" alt="Displacement Field" width="650"></a> | **6.03e-04 m (0.603 mm)** — Unidirectional thermal expansion relative to the fixed 3-2-1 anchor point, producing maximum deflection at the unconstrained top-left corner. |
+| **Hydrostatic Stress** | <a href="images/monolith_paraview_hydro.png"><img src="images/monolith_paraview_hydro.png" alt="Hydrostatic Stress" width="650"></a> | **+0.44 MPa (Tension) / -0.50 MPa (Compression)** — Bounds the full volumetric stress state, highlighting internal core tension (+435,016 Pa) prone to micro-cracking versus outer edge compression (-495,406 Pa). |
 
 ---
 
