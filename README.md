@@ -2,7 +2,7 @@
 
 This repository documents a coupled thermo-mechanical Finite Element Analysis (FEA) of an IG-110 nuclear-grade graphite fuel monolith. The simulation models steady-state heat distribution and thermal expansion stress using the MOOSE Framework.
 
----
+
 
 ## Technical Stack & Workflow
 * **CAD Modeling:** SolidWorks (`cad/monolith.SLDPRT`, `cad/monolith.STEP`)
@@ -10,7 +10,7 @@ This repository documents a coupled thermo-mechanical Finite Element Analysis (F
 * **FEA Solver:** MOOSE Framework (`simulation/monolith.i`) — Fully coupled Heat Conduction & Tensor Mechanics
 * **Post-Processing:** ParaView (`postprocessing/monolith_render.pvsm`)
 
----
+
 
 ## Mesh Topology
 A structured hexahedral mesh was built around the internal cooling channels and fuel pin arrays to ensure high gradient accuracy and fast numerical convergence.
@@ -23,7 +23,7 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 * **Total Element Count:** **18,430 elements**
 * **Mesh Quality:** **Average Scaled Jacobian > 0.81**
 
----
+
 
 ## Governing Physics & Boundary Conditions
 
@@ -38,7 +38,7 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 * **Thermal Expansion Coeff ($\alpha$):** **4.5e-6 / K**
 * **Kinematic Constraints:** Isostatic 3-2-1 point-constraint scheme (`pt1`, `pt2`, `pt3`) to eliminate 6 rigid-body modes without inducing artificial thermal stresses.
 
----
+
 
 ## Results & Discussion
 
@@ -49,7 +49,7 @@ A structured hexahedral mesh was built around the internal cooling channels and 
 | **Displacement** | <a href="images/monolith_paraview_disp.png"><img src="images/monolith_paraview_disp.png" alt="Displacement Field" width="650"></a> | **6.03e-04 m (0.603 mm)** — Unidirectional thermal expansion relative to the fixed 3-2-1 anchor point, producing maximum deflection at the unconstrained top-left corner. |
 | **Hydrostatic Stress** | <a href="images/monolith_paraview_hydro.png"><img src="images/monolith_paraview_hydro.png" alt="Hydrostatic Stress" width="650"></a> | **+0.44 MPa (Tension) / -0.50 MPa (Compression)** — Bounds the full volumetric stress state, highlighting internal core tension (+435,016 Pa) prone to micro-cracking versus outer edge compression (-495,406 Pa). |
 
----
+
 
 ## Repository Structure
 
